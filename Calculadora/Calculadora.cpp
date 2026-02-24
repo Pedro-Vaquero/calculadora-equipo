@@ -4,7 +4,9 @@ using namespace std;
 void mostrarMenu();
 double sumar(double a, double b);
 double restar(double a, double b);
+double multiplicar(double a, double b);
 double dividir(double a, double b);
+
 int main() {
 	int opcion;
 	double num1, num2, resultado;
@@ -12,7 +14,7 @@ int main() {
 		mostrarMenu();
 		cout << "Elige una opcion: ";
 		cin >> opcion;
-		if (opcion >= 1 && opcion <= 3) {
+		if (opcion >= 1 && opcion <=4 ) { // Cambia de 2 a 3
 			cout << "Introduce el primer numero: ";
 			cin >> num1;
 			cout << "Introduce el segundo numero: ";
@@ -26,16 +28,21 @@ int main() {
 				resultado = restar(num1, num2);
 				cout << "Resultado: " << resultado << endl;
 				break;
+
 			case 3:
-				if (num2 != 0) {
-					resultado = dividir(num1, num2);
-					cout << "Resultado: " << resultado << endl;
-				}
-				else {
-					cout << "Error: Division por cero" << endl;
-				}
+				resultado = multiplicar(num1, num2);
+				cout << "Resultado: " << resultado << endl;
 				break;
+		case 4:
+			if (num2 != 0) {
+				resultado = dividir(num1, num2);
+				cout << "Resultado: " << resultado << endl;
 			}
+			else {
+				cout << "Error: Division por cero" << endl;
+			}			
+			break;
+		}
 		}
 		else if (opcion != 0) {
 			cout << "Opcion no valida" << endl;
@@ -50,7 +57,8 @@ void mostrarMenu() {
 	cout << "=== CALCULADORA ===" << endl;
 	cout << "1. Sumar" << endl;
 	cout << "2. Restar" << endl;
-	cout << "3. Dividir" << endl; // NUEVA LÍNEA (diferente a A)
+	cout << "3. Multiplicar" << endl; // NUEVA LÍNEA
+	cout << "4. Dividir" << endl; // NUEVA LÍNEA (diferente a A)
 	cout << "0. Salir" << endl;
 }
 double sumar(double a, double b) {
@@ -58,6 +66,10 @@ double sumar(double a, double b) {
 }
 double restar(double a, double b) {
 	return a - b;
+}
+
+double multiplicar(double a, double b) {
+	return a * b;
 }
 
 double dividir(double a, double b) {
