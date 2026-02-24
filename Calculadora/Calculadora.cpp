@@ -4,6 +4,8 @@ using namespace std;
 void mostrarMenu();
 double sumar(double a, double b);
 double restar(double a, double b);
+double multiplicar(double a, double b);
+
 int main() {
 	int opcion;
 	double num1, num2, resultado;
@@ -11,7 +13,7 @@ int main() {
 		mostrarMenu();
 		cout << "Elige una opcion: ";
 		cin >> opcion;
-		if (opcion >= 1 && opcion <= 2) {
+		if (opcion >= 1 && opcion <= 3) { // Cambia de 2 a 3
 			cout << "Introduce el primer numero: ";
 			cin >> num1;
 			cout << "Introduce el segundo numero: ";
@@ -23,6 +25,11 @@ int main() {
 				break;
 			case 2:
 				resultado = restar(num1, num2);
+				cout << "Resultado: " << resultado << endl;
+				break;
+
+			case 3:
+				resultado = multiplicar(num1, num2);
 				cout << "Resultado: " << resultado << endl;
 				break;
 			}
@@ -40,6 +47,7 @@ void mostrarMenu() {
 	cout << "=== CALCULADORA ===" << endl;
 	cout << "1. Sumar" << endl;
 	cout << "2. Restar" << endl;
+	cout << "3. Multiplicar" << endl; // NUEVA LÍNEA
 	cout << "0. Salir" << endl;
 }
 double sumar(double a, double b) {
@@ -47,4 +55,8 @@ double sumar(double a, double b) {
 }
 double restar(double a, double b) {
 	return a - b;
+}
+
+double multiplicar(double a, double b) {
+	return a * b;
 }
